@@ -1,7 +1,7 @@
 #!/bin/bash
 
 git-pluck() {
-    cache_root='/tmp/gitpicker'
+    cache_root='/tmp/git-pluck'
     case "$1" in
         --reset|-r)
             rm -rf "$cache_root/*"
