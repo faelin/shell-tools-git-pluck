@@ -4,7 +4,7 @@ Command line tool to pluck files from any branch or commit within your git repo.
 
 Plucked files are automatically tracked (but not staged).
 
-# usage
+## usage
 
 ```
 git-pluck <branch|commit>
@@ -16,3 +16,11 @@ git-pluck --clean <branch>
 git-pluck --reset
 # completely clear the git-pluck cache
 ```
+
+## installation
+
+Currently, git-pluck must be installed manually through `git clone`.
+
+## dependencies
+
+Requires [fzf](https://github.com/junegunn/fzf)
