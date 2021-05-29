@@ -25,7 +25,7 @@ git-pluck() {
     index="$(git diff-index --diff-filter=a --find-copies --find-renames --summary "$target")"
     if [ ! -f "$cache/files" ] || [ ! -f "$cache/index" ] || [[ $(< "$cache/index") != "$index" ]]; then
         echo $index > "$cache/index"
-        printf "%s\n" "$(echo $index | perl -ne 's/^ (?:(?:rename|copy) ((.*?){)?(.+?) => (.+)(?(1)}(.*)|) \(\d+%\)|\w+ mode \d+ (.*))$/$6\t$2$3$5\t$2$4$5/; print ($6 ? "$6\n" : "$2$3$5\t$2$4$5\n")')" > "$cache/files"
+        printf "%s\n" "$(echo $index | perl -pe 's/^ (?:(?:rename|copy) ((.*?){)?(.+?) => (.+)(?(1)}(.*)|) \(\d+%\)|\w+ mode \d+ (.*))$/$6\t$2$3$5\t$2$4$5/;')" > "$cache/files"
     fi
 
     selected=( $( echo "$index" | fzf -m --preview "git diff $target --color=always -- \$( sed \"\$(( {n} + 1 ))q;d\" '$cache/files' )" ) ) || return 1  # fail if fzf was interrupted/exited
