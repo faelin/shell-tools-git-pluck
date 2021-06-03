@@ -1,5 +1,4 @@
-# git-picker
-
+# git-pluck
 Command line tool to pluck files from any branch or commit within your git repo. Plucked files are added to the current working tree. If a plucked file conflicts with an existing file, changes will be merged.
 
 Plucked files are automatically tracked (but not staged).
