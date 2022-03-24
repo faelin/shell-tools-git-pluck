@@ -10,7 +10,7 @@ git-pluck <branch|commit>
 # select files from a branch or commit
 
 git-pluck --clean <branch>
-# as above, but first reset the relevant cached state
+# as above, but with a clean cache.
 
 git-pluck --reset
 # completely clear the git-pluck cache
